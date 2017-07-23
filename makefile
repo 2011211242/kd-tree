@@ -2,16 +2,16 @@ PROJECT := $(shell readlink $(dir $(lastword $(MAKEFILE_LIST))) -f)
 
 CXX = g++
 CXXFLAGS = -std=c++11 \
-		  -O3 \
-		  -Wall \
-		  -fno-omit-frame-pointer \
-		  -fPIC 
+		   -O3 \
+		   -Wall \
+		   -fno-omit-frame-pointer \
+		   -fPIC 
 
 INC_FLAGS= -I ${PROJECT}/include
 BIN_DIR = $(PROJECT)/bin
 LIB_DIR = $(PROJECT)/lib
 MKDIR = $(BIN_DIR) \
-			$(LIB_DIR)
+		$(LIB_DIR)
 
 OBJS =  $(shell find $(PROJECT) -type f -name "*.o")
 BASE_SRC = $(shell find $(PROJECT)/src -type f -name "*.cpp" -type f ! -name "main.cpp")
@@ -24,9 +24,9 @@ LIB_KDTREE=$(LIB_DIR)/libkdtree.a
 LD_KDTREE=$(LIB_DIR)/libkdtree.so
 
 all: path \
-		kdtree_server \
-		kdtree_ld \
-		kdtree_lib 
+	kdtree_server \
+	kdtree_ld \
+	kdtree_lib 
 
 path: $(MKDIR)
 
@@ -54,5 +54,4 @@ $(KDTREE_SERVER): $(BASE_OBJ) $(SERVER_OBJ)
 
 make clean:
 	rm -rf $(BIN_DIR) $(LIB_DIR) $(OBJS)
-
 
