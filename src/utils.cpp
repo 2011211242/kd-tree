@@ -12,18 +12,16 @@
 #include <algorithm>
 #include <cmath>
 
-using namespace std;
-
-double distOfPoint2cube(const vector<double> &p,
-        const vector<double> &l, const vector<double> &h)
+double distOfPoint2cube(const std::vector<double> &p,
+        const std::vector<double> &l, const std::vector<double> &h)
 {
     double dist = 0.0f;
     assert(p.size() == l.size() && l.size() == h.size());
 
-    for(unsigned int i = 0; i < l.size(); i++)
+    for(uint32_t i = 0; i < l.size(); i++)
     {
         int sign = !(p[i] >= l[i] && p[i] <= h[i]);
-        double tmp = min(abs(p[i] - l[i]), abs(p[i] - h[i]));
+        double tmp = std::min(std::abs(p[i] - l[i]), std::abs(p[i] - h[i]));
         dist += sign * tmp * tmp;
     }
     return sqrt(dist);
