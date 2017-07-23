@@ -1,0 +1,31 @@
+/****************************************
+* File Name: utils.cpp
+* Created Time: 2017-07-22 22:14:29
+* Author: yanxianlong                        
+* Mail: xianlongyan@foxmail.com              
+* Github: https://github.com/2011211242       
+****************************************/
+
+#include <utils.h>
+#include <vector>
+#include <assert.h>
+#include <algorithm>
+#include <cmath>
+
+using namespace std;
+
+double distOfPoint2cube(const vector<double> &p,
+        const vector<double> &l, const vector<double> &h)
+{
+    double dist = 0.0f;
+    assert(p.size() == l.size() && l.size() == h.size());
+
+    for(unsigned int i = 0; i < l.size(); i++)
+    {
+        int sign = !(p[i] >= l[i] && p[i] <= h[i]);
+        double tmp = min(abs(p[i] - l[i]), abs(p[i] - h[i]));
+        dist += sign * tmp * tmp;
+    }
+    return sqrt(dist);
+}
+
