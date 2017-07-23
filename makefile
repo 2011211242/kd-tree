@@ -13,6 +13,7 @@ LIB_DIR = $(PROJECT)/lib
 MKDIR = $(BIN_DIR) \
 			$(LIB_DIR)
 
+OBJS =  $(shell find $(PROJECT) -type f -name "*.o")
 BASE_SRC = $(shell find $(PROJECT)/src -type f -name "*.cpp" -type f ! -name "main.cpp")
 BASE_OBJ = $(BASE_SRC:.cpp=.o)
 
@@ -52,6 +53,6 @@ $(KDTREE_SERVER): $(BASE_OBJ) $(SERVER_OBJ)
 	${CXX} ${CXXFLAGS}  $^ -o $@
 
 make clean:
-	rm -rf $(BASE_OBJ) $(SERVER_OBJ) $(BIN_DIR) $(LIB_DIR)
+	rm -rf $(BIN_DIR) $(LIB_DIR) $(OBJS)
 
 
