@@ -2,7 +2,7 @@ PROJECT := $(shell readlink $(dir $(lastword $(MAKEFILE_LIST))) -f)
 
 CXX = g++
 CXXFLAGS = -std=c++11 \
-		  -g \
+		  -O3 \
 		  -Wall \
 		  -fno-omit-frame-pointer \
 		  -fPIC 
