@@ -7,6 +7,6 @@
 ****************************************/
 #include <config.h>
 namespace kdtree{
-    std::string config::data_dir = "/home/brs/collaborative-filter/data";
+    std::string config::data_dir = "/home/long/kd-tree/data";
     uint32_t config::leaf_size = 100;
 };

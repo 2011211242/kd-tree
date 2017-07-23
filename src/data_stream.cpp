@@ -36,9 +36,10 @@ namespace kdtree{
         std::ifstream in;
         in.open(file_name, std::ios::binary);
         in.seekg(0, std::ios::end);   
-        size = in.tellg() / sizeof(double);
 
+        size = in.tellg() / sizeof(double);
         double* buf = new double[size];
+
         in.seekg(0, std::ios::beg);
         in.read(reinterpret_cast<char*>(buf), size * sizeof(double));
 
