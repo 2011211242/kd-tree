@@ -1,5 +1,5 @@
-#ifndef MULTIVERSO_STOP_WATCH_
-#define MULTIVERSO_STOP_WATCH_
+#ifndef STOP_WATCH_
+#define STOP_WATCH_
 
 #include <cstdint>
 
@@ -51,4 +51,4 @@ namespace kdtree
     };
 }
 
-#endif // MULTIVERSO_STOP_WATCH_
+#endif // STOP_WATCH_
