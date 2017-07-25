@@ -12,6 +12,7 @@
 #include <config.h>
 #include <data_stream.h>
 #include <stop_watch.h>
+#include <kdtree.h>
 
 using namespace kdtree;
 

@@ -11,6 +11,7 @@
 #include <assert.h>
 #include <algorithm>
 #include <cmath>
+#include <cstdint>
 
 double distOfPoint2cube(const std::vector<double> &p,
         const std::vector<double> &l, const std::vector<double> &h)
