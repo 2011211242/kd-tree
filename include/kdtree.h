@@ -19,7 +19,7 @@ namespace kdtree{
             void static init(const uint32_t leaf_size);
             node(std::vector<uint32_t> _idx) :idx(_idx){}
 
-            void search_knear(uint32_t id, const std::vector<std::vector<uint32_t>> &points,
+            void search_knear(uint32_t id, const std::vector<uint32_t> &point,
                     uint32_t k, std::vector<std::vector<uint32_t>> &res);
 
             ~node();

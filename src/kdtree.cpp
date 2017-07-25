@@ -15,9 +15,8 @@ namespace kdtree{
 
     }
 
-    void node::search_knear(uint32_t id, const std::vector<std::vector<uint32_t>> &points,
+    void node::search_knear(uint32_t id, const std::vector<uint32_t> &point,
             uint32_t k, std::vector<std::vector<uint32_t>> &res){
-
     }
 
     node::~node(){

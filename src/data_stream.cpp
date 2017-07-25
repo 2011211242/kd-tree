@@ -27,6 +27,7 @@ namespace kdtree{
         for(uint32_t i = 0; i < size; i++){
             idx[i] = buf[i];
         }
+
         delete [] buf;
         return idx;
     }
