@@ -31,5 +31,4 @@ int main(){
             col_file_name, data_file_name);
     printf("%.3fs.\n", watch.ElapsedSeconds());
     printf("%lu %lu\n", data.size(), data[0].size());
-    
 }

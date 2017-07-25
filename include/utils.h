@@ -10,3 +10,4 @@
 
 double distOfPoint2cube(const std::vector<double> &p,
         const std::vector<double> &l, const std::vector<double> &h);
+

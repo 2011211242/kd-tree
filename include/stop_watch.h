@@ -1,5 +1,5 @@
-#ifndef STOP_WATCH_
-#define STOP_WATCH_
+#ifndef STOP_WATCH
+#define STOP_WATCH
 
 #include <cstdint>
 
@@ -51,4 +51,4 @@ namespace kdtree
     };
 }
 
-#endif // STOP_WATCH_
+#endif // STOP_WATCH
