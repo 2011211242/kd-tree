@@ -15,7 +15,7 @@ MKDIR = $(BIN_DIR) \
 
 OBJS =  $(shell find $(PROJECT) -type f -name "*.o")
 BASE_SRC = $(shell find $(PROJECT)/src -type f -name "*.cpp" -type f ! -name "main.cpp")
-BASE_OBJ = $(BASE_SRC:.cpp=.o)
+BASE_OBJ = $(BASE_SRC:%.cpp=%.o)
 
 SERVER_SRC = $(shell find $(PROJECT)/src -type f -name "main.cpp")
 SERVER_OBJ = $(SERVER_SRC:.cpp=.o)
