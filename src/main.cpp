@@ -15,6 +15,7 @@
 #include <kdtree.h>
 
 using namespace kdtree;
+using std::vector;
 
 int main(){
     std::vector<double> p = {-1, 0, 1, 2};
@@ -28,8 +29,12 @@ int main(){
     StopWatch watch;
     watch.Start();
 
-    std::vector<std::vector<double>> data = read_data(row_file_name, 
+    /*std::vector<std::vector<float>> data = read_data(row_file_name, 
             col_file_name, data_file_name);
+    */
+    vector<vector<float>> data = {{1, 3, 3}, {3, 4, 5}};
+
     printf("%.3fs.\n", watch.ElapsedSeconds());
     printf("%lu %lu\n", data.size(), data[0].size());
+    KDTree kdtree(data, 100, 4);
 }

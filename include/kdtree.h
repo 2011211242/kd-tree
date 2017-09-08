@@ -11,25 +11,38 @@
 
 #include <cstdint>
 #include <vector>
+#include <thread>
+#include <queue>
 
+using std::vector;
+using std::thread;
+using std::queue;
 
 namespace kdtree{
+    struct kdres{
+        double dist;
+        unsigned int idx;
+    };
+
     class node{
         public:
-            node(node * father, std::vector<uint32_t> idx, std::vector<std::vector<double>> &input);
+            node(node * father, std::vector<uint32_t> idx, uint32_t leaf_size);
+            void split();
         private:
             std::vector<uint32_t> idx;
             node *left, *right, *father;
-            static uint32_t leaf_size;
+            uint32_t leaf_size;
     };
 
+    void split();
     class KDTree{
         public:
             KDTree(const uint32_t leaf_size);
-            ~KDTree();
+            KDTree(const vector<vector<float>> &data, const uint32_t leaf_size, uint32_t n_jobs=4);
 
-            void search_knear(const std::vector<std::vector<uint32_t>> &points,
-                    uint32_t k, std::vector<std::vector<uint32_t>> &res);
+            ~KDTree();
+            vector<kdres>  search_knear(uint32_t k);
+            const vector<vector<float>> & input;
 
         private:
             node * root;

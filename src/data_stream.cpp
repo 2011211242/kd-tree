@@ -32,7 +32,7 @@ namespace kdtree{
         return idx;
     }
 
-    std::vector<double> read_val(std::string file_name){
+    std::vector<float> read_val(std::string file_name){
         uint32_t size = 0;
         std::ifstream in;
         in.open(file_name, std::ios::binary);
@@ -44,7 +44,7 @@ namespace kdtree{
         in.seekg(0, std::ios::beg);
         in.read(reinterpret_cast<char*>(buf), size * sizeof(double));
 
-        std::vector<double> idx(size);
+        std::vector<float> idx(size);
         for(uint32_t i = 0; i < size; i++){
             idx[i] = buf[i];
         }
@@ -52,12 +52,12 @@ namespace kdtree{
         return idx;
     }
 
-    std::vector<std::vector<double>> read_data(std::string row_file_name, 
+    std::vector<std::vector<float>> read_data(std::string row_file_name, 
             std::string col_file_name, std::string data_file_name){
 
         std::vector<uint32_t> row = read_index(row_file_name);
         std::vector<uint32_t> col = read_index(col_file_name);
-        std::vector<double> data = read_val(data_file_name);
+        std::vector<float> data = read_val(data_file_name);
         assert(row.size() == col.size() && col.size() == data.size());
 
         uint32_t row_size = 0;
@@ -66,7 +66,7 @@ namespace kdtree{
             row_size = std::max(row_size, row[i]);
             col_size = std::max(col_size, col[i]);
         }
-        std::vector<std::vector<double>> ret(row_size + 1, std::vector<double>(col_size + 1));
+        std::vector<std::vector<float>> ret(row_size + 1, std::vector<float>(col_size + 1));
         for(uint32_t i = 0; i < row.size(); i++){
             ret[row[i]][col[i]] = data[i];
         }

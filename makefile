@@ -2,10 +2,11 @@ PROJECT := $(shell readlink $(dir $(lastword $(MAKEFILE_LIST))) -f)
 
 CXX = g++
 CXXFLAGS = -std=c++11 \
-		   -O3 \
+		   -g \
 		   -Wall \
 		   -fno-omit-frame-pointer \
 		   -fPIC 
+LFLAGS = -l pthread
 
 INC_FLAGS= -I ${PROJECT}/include
 BIN_DIR = $(PROJECT)/bin
@@ -50,7 +51,7 @@ $(SERVER_OBJ): %.o: %.cpp $(SERVER_SRC)
 	${CXX} ${CXXFLAGS} ${INC_FLAGS} -c $< -o $@
 
 $(KDTREE_SERVER): $(BASE_OBJ) $(SERVER_OBJ)
-	${CXX} ${CXXFLAGS}  $^ -o $@
+	${CXX} ${CXXFLAGS}  $^ ${LFLAGS} -o $@
 
 make clean:
 	rm -rf $(BIN_DIR) $(LIB_DIR) $(OBJS)
